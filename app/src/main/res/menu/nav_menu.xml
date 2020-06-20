@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_item_one"
+        android:title="Pergunte ao comprova" />
+    <item
+        android:id="@+id/nav_item_four"
+        android:title="WhatsApp do comprova " />
+    <group android:id="@+id/g3">
+        <item android:title="Sobre o comprova" />
+        <item android:title="FAQs" />
+        <item android:title="Contato" />
+        <item android:title="Parceiros" />
+    </group>
+    <item android:title="Arquivos" />
+
+</menu>
