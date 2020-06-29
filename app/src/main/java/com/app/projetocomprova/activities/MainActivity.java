@@ -1,6 +1,9 @@
-package com.app.projetocomprova;
+package com.app.projetocomprova.activities;
 
-import androidx.annotation.NonNull;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
+
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -8,17 +11,19 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.os.Bundle;
-import android.view.MenuItem;
-
+import com.app.projetocomprova.R;
+import com.app.projetocomprova.fragments.ArquivosFragment;
+import com.app.projetocomprova.fragments.HomeFragment;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.Objects;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener{
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
+    //private Fragment homeFragment, arquviosFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
+        HomeFragment homeFragment = new HomeFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.contentLayout, homeFragment);
+        transaction.commit();
 
     }
 
@@ -49,8 +58,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+    public boolean onNavigationItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if(id == R.id.nav_home) {
+            HomeFragment homeFragment = new HomeFragment();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.contentLayout, homeFragment);
+            transaction.commit();
+            Log.i("info", "   home");
+        } else if (id == R.id.nav_arquivos) {
+            ArquivosFragment arquviosFragment = new ArquivosFragment();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.contentLayout, arquviosFragment);
+            transaction.commit();
+        }
+
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }

@@ -3,15 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_header"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
+    android:layout_height="176dp"
     android:background="@color/colorPrimary"
-    android:clickable="true"
+    android:clickable="false"
     android:focusable="true"
     android:gravity="bottom|center"
     android:orientation="vertical"
     android:padding="16dp"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark"
-    tools:menu="@menu/nav_menu">
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
     <ImageView
         android:id="@+id/nav_header_imageView"
