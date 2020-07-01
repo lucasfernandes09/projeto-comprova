@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".fragments.SobreFragment">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Sobre o Comprova"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="O objetivo do Comprova é identificar e enfraquecer as sofisticadas técnicas de manipulação e disseminação de conteúdo enganoso que vemos surgir em sites, aplicativos de mensagens e redes sociais. \n\nNossos parceiros estão unidos no compromisso de investigar – de maneira precisa e responsável – declarações, especulações e rumores que estejam ganhando fôlego e projeção na internet. Ao trabalhar coletivamente para selecionar e apurar textos, vídeos, imagens e gráficos, os jornalistas do Comprova vão contextualizar e esclarecer informações que podem ser consideradas enganosas ou deturpadas e tomar providências para minimizar o alcance e o impacto de mentiras comprovadas e deliberadas que tenham relação com políticas públicas no âmbito federal." />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Nossos princípios orientadores"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Os parceiros Comprova desenvolveram e concordaram, juntos, em seguir cinco princípios básicos:" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Rigor"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="A linguagem utilizada nas chamadas e nos textos vai contextualizar e explicar as informações baseada apenas em evidências comprováveis. Isso também vale para todas as imagens, ilustrações ou indicadores visuais que demonstram se uma informação é confiável ou falsa.\n\nNenhum relato será publicado sem que pelo menos três redações parceiras concordem com os passos de verificação seguidos, as conclusões obtidas e a veracidade geral do texto.  " />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Integridade e imparcialidade "
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Decidiremos que rumores, declarações ou conteúdo serão investigados com base na possível dissipação rápida das informações e para além de comunidades de nicho. Isso será avaliado por meio de algoritmos de previsão.\n\nA cada semana, a produção do Comprova será revisada por um Conselho Editorial que identificará qualquer padrão enviesado não intencional. O Conselho é formado por representantes sênior dos veículos de comunicação parceiros.\n\nTodas as redações são responsáveis umas pelas outras e entendem que sua produção individual receberá, do Comprova, a mesma análise que qualquer outra fonte." />
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Independência"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Como uma coalizão, o Comprova trabalha no melhor interesse público e é completamente independente de qualquer outra organização. Decisões operacionais e editoriais são tomadas coletivamente sem sofrer influência do apoio financeiro ou tecnológico recebido de outras organizações comerciais ou auxiliares.\n\nO projeto não tem filiação política e os jornalistas participantes concordam em se declarar impedidos de investigar assuntos em que possam ter algum conflito de interesses.\n\nAs organizações que ajudam na coordenação do Comprova fornecem suporte técnico e administrativo, além de orientações baseadas em seus campos de atuação. Em qualquer caso, a coalizão não se obriga a seguir esses conselhos e preserva sua autonomia coletiva sobre o projeto." />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Transparência"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Toda reportagem mostrará claramente como o rumor, declaração ou conteúdo foi selecionado (com base na evidência de que pode ser muito disseminado e na relevância para o interesse público). Também explicará os passos seguidos durante a investigação, incluindo links para fontes quando for seguro e apropriado.  Quaisquer alterações ou correções serão claramente identificadas e explicadas." />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Responsabilidade ética "
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="O projeto se esforçará, em tempo integral, a não estimular rumores ou informações falsas. Não publicará links para conteúdo problemático nem dará legitimidade a informações que circulam por comunidades pequenas e de nicho.\n\nEm casos de pessoas identificadas erroneamente, falsamente acusadas ou correndo o riscos de se transformar em vítimas a partir de sua inclusão em uma reportagem, o Comprova tomará todas as medidas necessárias para proteger a identidade e a dignidade dos indivíduos.\n\nDeclarações e outros itens de conteúdo serão investigados e publicados com base em sua relevância para a missão do projeto: informar os leitores de maneira precisa a respeito das políticas públicas do governo federal. A decisão sobre o que publicar não levará em conta artifícios que chamem a atenção ou reforcem o projeto, como uso de manchetes sensacionalistas ou ênfase em polêmicas.  " />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Nossas etiquetas "
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="O Comprova usa etiquetas para reforçar as conclusões de suas verificações. Em 25 de novembro de 2019, simplificamos nossas etiquetas para dar mais clareza às conclusões das verificações. Elas agora são quatro e representam os seguintes conteúdos:\n\nEnganoso: Conteúdo retirado do contexto original e usado em outro com o propósito de mudar o seu significado; que induz a uma interpretação diferente da intenção de seu autor; conteúdo que confunde, com ou sem a intenção deliberada de causar dano.\n\nFalso: Conteúdo inventado ou que tenha sofrido edições para mudar o seu significado original e divulgado de modo deliberado para espalhar uma mentira.\n\nSátira: memes, paródias e imitações publicadas com intuito de fazer humor. O Comprova verifica conteúdos satíricos quando percebe que há pessoas tomando-os por verdadeiros.\n\nComprovado: Fato verdadeiro; evento confirmado; localização comprovada; ou conteúdo original publicado sem edição." />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
