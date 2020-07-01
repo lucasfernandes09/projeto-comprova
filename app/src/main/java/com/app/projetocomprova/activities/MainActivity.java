@@ -1,5 +1,6 @@
 package com.app.projetocomprova.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -74,6 +75,8 @@ public class MainActivity extends AppCompatActivity
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.contentLayout, arquviosFragment);
             transaction.commit();
+        } else if (id == R.id.nav_pergunte) {
+            startActivity(new Intent(this, PergunteActivity.class));
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
