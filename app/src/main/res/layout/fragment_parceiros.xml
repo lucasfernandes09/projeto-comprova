@@ -24,139 +24,446 @@
             android:id="@+id/textView43"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PARCEIROS DA COALIZÃO " />
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="PARCEIROS DA COALIZÃO "
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-        <LinearLayout
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@android:color/white">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/opovo" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/afp2" />
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/bandnews" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/bandtv"
+                    app:srcCompat="@drawable/bandtv" />
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/canalfutura" />
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/correio_do_povo" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/folhalogo" />
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/jornaldocommercio" />
+
+                <ImageView
+                    android:id="@+id/imageView10"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/logogzh" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageView11"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/metrobrasil" />
+
+                <ImageView
+                    android:id="@+id/imageView12"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/nexo_journal" />
+
+                <ImageView
+                    android:id="@+id/imageView13"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/nova_escola" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageView16"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/poder360" />
+
+                <ImageView
+                    android:id="@+id/imageView15"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/oestadao2" />
+
+                <ImageView
+                    android:id="@+id/imageView14"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/nsc" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageView17"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/radiobandeirantes" />
+
+                <ImageView
+                    android:id="@+id/imageView18"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/radiobandnewsfm" />
+
+                <ImageView
+                    android:id="@+id/imageView19"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/revistapiaui" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageView20"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/sbt" />
+
+                <ImageView
+                    android:id="@+id/imageView21"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/uol" />
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    app:srcCompat="@drawable/correio" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageView22"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    app:srcCompat="@drawable/exame" />
+
+                <ImageView
+                    android:id="@+id/imageView23"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    app:srcCompat="@drawable/logomarcaagazeta" />
+
+                <ImageView
+                    android:id="@+id/imageView24"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    app:srcCompat="@drawable/diariodonordeste" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageView25"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="8dp"
+                    app:srcCompat="@drawable/correio_do_estado" />
+
+                <ImageView
+                    android:id="@+id/imageView26"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="8dp"
+                    app:srcCompat="@drawable/opopular" />
+
+                <ImageView
+                    android:id="@+id/imageView27"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="8dp"
+                    app:srcCompat="@drawable/gazetadosul" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageView28"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="8dp"
+                    app:srcCompat="@drawable/estadodeminas" />
+
+                <ImageView
+                    android:id="@+id/imageView29"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="8dp"
+                    app:srcCompat="@drawable/correiodecarajas" />
+            </TableRow>
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/textView44"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="PARCEIROS DE APOIO "
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@android:color/white">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageView30"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="8dp"
+                    app:srcCompat="@drawable/googlenewsinitiatve" />
+
+                <ImageView
+                    android:id="@+id/imageView31"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:layout_margin="8dp"
+                    app:srcCompat="@drawable/facebook_journalism_project" />
+            </TableRow>
+
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/textView45"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="PARCEIROS DE TECNOLOGIA"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:background="@android:color/white">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageView32"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    app:srcCompat="@drawable/wpp_logo" />
+
+                <ImageView
+                    android:id="@+id/imageView33"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    app:srcCompat="@drawable/twitter" />
+
+                <ImageView
+                    android:id="@+id/imageView34"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    app:srcCompat="@drawable/torabit" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/imageView35"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    app:srcCompat="@drawable/crowdtangle" />
+
+                <ImageView
+                    android:id="@+id/imageView36"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    app:srcCompat="@drawable/newswhip" />
+
+                <ImageView
+                    android:id="@+id/imageView37"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    app:srcCompat="@drawable/logo_ufmg" />
+            </TableRow>
+
+        </TableLayout>
+
+        <TextView
+            android:id="@+id/textView46"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@android:color/white"
-            android:gravity="center|top"
-            android:orientation="vertical">
+            android:text="PARCEIROS INSTITUCIONAIS "
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/imageView"
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:background="@android:color/white">
+
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:clickable="true"
-                android:src="@drawable/opovo" />
+                android:layout_height="match_parent"
+                android:gravity="center">
 
-            <ImageView
-                android:id="@+id/imageView2"
+                <ImageView
+                    android:id="@+id/imageView38"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    app:srcCompat="@drawable/faap" />
+
+                <ImageView
+                    android:id="@+id/imageView39"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    app:srcCompat="@drawable/abraji" />
+            </TableRow>
+
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:src="@drawable/afp2" />
+                android:layout_height="match_parent"
+                android:gravity="center">
 
-            <ImageView
-                android:id="@+id/imageView4"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:src="@drawable/bandnews" />
+                <ImageView
+                    android:id="@+id/imageView40"
+                    android:layout_width="180dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="8dp"
+                    app:srcCompat="@drawable/advogados" />
+            </TableRow>
 
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:src="@drawable/bandtv" />
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:src="@drawable/canalfutura" />
-
-            <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:src="@drawable/correio_do_povo" />
-
-            <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:src="@drawable/folhalogo" />
-
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:src="@drawable/jornaldocommercio" />
-
-            <ImageView
-                android:id="@+id/imageView10"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:src="@drawable/logo_gzh" />
-
-            <ImageView
-                android:id="@+id/imageView11"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:src="@drawable/metrobrasil" />
-
-            <ImageView
-                android:id="@+id/imageView12"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:src="@drawable/nexo_journal" />
-
-            <ImageView
-                android:id="@+id/imageView13"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:src="@drawable/nova_escola" />
-
-            <ImageView
-                android:id="@+id/imageView14"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:src="@drawable/nsc" />
-
-            <ImageView
-                android:id="@+id/imageView15"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:src="@drawable/oestadao2" />
-
-            <ImageView
-                android:id="@+id/imageView16"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:src="@drawable/poder360" />
-
-            <ImageView
-                android:id="@+id/imageView17"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:src="@drawable/radiobandeirantes" />
-
-            <ImageView
-                android:id="@+id/imageView18"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:src="@drawable/radiobandnewsfm" />
-
-            <ImageView
-                android:id="@+id/imageView19"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:src="@drawable/revistapiaui" />
-
-            <ImageView
-                android:id="@+id/imageView20"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:src="@drawable/sbt" />
-
-            <ImageView
-                android:id="@+id/imageView21"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:src="@drawable/uol" />
-
-        </LinearLayout>
+        </TableLayout>
     </LinearLayout>
 </ScrollView>
