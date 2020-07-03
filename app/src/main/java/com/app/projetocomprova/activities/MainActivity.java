@@ -14,7 +14,9 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.app.projetocomprova.R;
 import com.app.projetocomprova.fragments.ArquivosFragment;
+import com.app.projetocomprova.fragments.FAQsFragment;
 import com.app.projetocomprova.fragments.HomeFragment;
+import com.app.projetocomprova.fragments.ParceirosFragment;
 import com.app.projetocomprova.fragments.SobreFragment;
 import com.app.projetocomprova.fragments.WhatsappFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -83,6 +85,16 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_sobre) {
             SobreFragment sobreFragment = new SobreFragment();
             transaction.replace(R.id.contentLayout, sobreFragment);
+            transaction.commit();
+
+        } else if(id == R.id.nav_faqs) {
+            FAQsFragment faQsFragment = new FAQsFragment();
+            transaction.replace(R.id.contentLayout, faQsFragment);
+            transaction.commit();
+
+        } else if(id == R.id.nav_parceiros) {
+            ParceirosFragment parceirosFragment = new ParceirosFragment();
+            transaction.replace(R.id.contentLayout, parceirosFragment);
             transaction.commit();
 
         } else if (id == R.id.nav_arquivos) {

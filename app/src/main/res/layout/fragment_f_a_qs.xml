@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context=".fragments.FAQsFragment">
+
+        <TextView
+            android:id="@+id/textView21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:text="FAQs"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Quem faz o Comprova? "
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView31"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="O Comprova foi idealizado e desenvolvido pelo First Draft com a colaboração de Abraji, Projor, Google News Initiative e Facebook’s Journalism Project. Trata-se de um trabalho colaborativo entre veículos de comunicação parceiros para verificar informações online, publicar desmentidos em um site central do Comprova e ampliar a difusão dos resultados em suas próprias plataformas. O projeto também tem parceiros nas áreas de tecnologia e institucional. Nesta página, você encontra uma lista completa de parceiros locais, nacionais e internacionais." />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Como o Comprova é financiado? "
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="O Google News Initiative e o Facebook Journalism Project deram apoio financeiro ao Comprova para ajudar a treinar os parceiros, contratar equipe de suporte administrativo e editorial e permitir que redações com menos recursos participem ativamente do projeto." />
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Como o Comprova escolhe o que será investigado? "
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Usaremos NewsWhip, Google Trends, Crowdtangle e Tweetdeck para monitorar pesquisas públicas em todo o país e saber que tipo de informações e respostas as pessoas procuram. Faremos nosso próprio monitoramento manual de sites e páginas em redes sociais usando palavras-chave relacionadas a políticas públicas em âmbito federal.\nPor meio de nosso website, de perfis no Facebook e Twitter, e de um número dedicado no WhatsApp, convidaremos o público a submeter perguntas em relação a histórias e declarações que estejam circulando. As organizações parceiras também acrescentam “dicas” que receberem por via direta. O Comprova é um projeto independente e sem vieses. Vamos investigar e relatar informações e declarações de todas as fontes e decidir o que abordar com base em prognósticos métricos (por exemplo: histórias com boa pontuação tendem a se propagar mais rápido e de maneira mais ampla." />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Como as pessoas trabalharão no Comprova? "
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Jornalistas dos veículos participantes vão investigar colaborativamente cada nova descoberta ou item submetido de conteúdo online, compartilhando em um banco de dados central as notas, experiências e passos de verificação seguidos. Um jornalista ou editor do Comprova então escreve um pequeno relato para o website do projeto, explicando rigorosamente como foi feita a investigação, acrescentando contexto e validando evidências ou indicadores visuais que ajudem o público a entender se algo que viram, ouviram ou leram é fidedigno ou se não é confiável. Esses relatos só serão publicados quando pelo menos três outras redações participantes revisarem e validarem os passos de verificação e as conclusões obtidas. O logo desses veículos aparece junto ao relato final. Conhecido como “checagem cruzada” (CrossCheck), esse processo garante que todos os jornalistas participantes tenham o compromisso, uns com os outros, de investigar e escrever os relatos de maneira completa e responsável. O processo de CrossCheck também assegura que o projeto se mantenha fiel aos princípios manifestos de transparência, precisão e imparcialidade. Cada relato publicado no site do Comprova será divulgado por meio das redes sociais e canais de WhatsApp do projeto, além de incorporados ou citados por redações parceiras em sua cobertura própria. O site foi criado especificamente para mobile, com funcionalidade semelhante a uma plataforma social, para que os usuários possam compartilhar os relatos de maneira rápida e fácil em suas próprias redes." />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Qualquer um pode usar as descobertas do projeto? "
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="O copyright de todo o material produzido pelo Comprova segue a Atribuição-SemDerivações 4.0 Internacional (CC BY-ND 4.0). Compartilhe: copie e distribua o material em qualquer meio ou formato, com qualquer propósito – mesmo comercial. O cedente não pode revogar essa liberdade, desde que sejam seguidos os termos da licença. Por esses termos:  Atribuição — É preciso dar o crédito apropriado, fornecer um link para a licença e indicar se foram feitas mudanças no conteúdo. Você pode fazer isso de modo razoável, mas não de forma a sugerir o endosso do cedente.\nSem Derivações — Se você remixar, transformar ou criar a partir do material utilizado, não será possível distribuir o conteúdo novo.\nSem restrições adicionais — Você não pode usar termos legais ou tomar medidas tecnológicas que restrinjam legalmente outras pessoas de fazer qualquer coisa que a licença permita." />
+
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Como entrar em contato com o Comprova? "
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView33"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Para todas as perguntas, escreva para comprova@abraji.org.br e nós responderemos assim que possível." />
+
+            <TextView
+                android:id="@+id/textView34"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Outros parceiros podem se juntar ao projeto agora? "
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView35"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="A possibilidade de se juntar ao Comprova como parceiro de verificação cruzada já se encerrou. Isso garante que todos os participantes tenham recebido o mesmo treinamento e que tenham contribuído de forma igualitária para a redação dos acordos de princípios e políticas. Encorajamos outros veículos a usar nosso material com a licença Creative Commons, dando crédito total ao Comprova." />
+
+            <TextView
+                android:id="@+id/textView36"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Qual é, exatamente, o apoio recebido das empresas de tecnologia? "
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView37"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Recebemos contribuições financeiras do Google News Initiative e do Facebook Journalism Project. Além disso, o Google ajudou na compreensão de seus trending topics e o Facebook forneceu, a todos os parceiros, acesso ao CrowdTangle para monitorar informações online. O Facebook também contribuirá com a promoção de posts da página do Comprova na rede social. O WhatsApp nos ajudou a estabelecer um canal WhatsApp Business e, durante o projeto, vai auxiliar para que nossas informações alcancem uma grande audiência. O Twitter dará destaque a nossos relatos nos Twitter Moments e, por meio do programa Ads for Good, promoverá os posts que falarem sobre a importância da compreensão de notícias. O NewsWhip forneceu acesso à plataforma Spike para que os veículos parceiros monitorem informações online." />
+
+            <TextView
+                android:id="@+id/textView38"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Que tipo de conteúdo vocês não checam? "
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView39"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Não fazemos a checagem de comunicados oficiais ou afirmações públicas de políticos ou outras autoridades. Iremos, porém, investigar uma declaração ou afirmação quando houver desconfiança de que cita uma fonte online não oficial. Dentre as agências verificadoras, recomendamos que você siga outras iniciativas brasileiras como Agência Lupa e Aos Fatos" />
+
+            <TextView
+                android:id="@+id/textView40"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="Como os parceiros foram selecionados? "
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView41"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Em novembro de 2017, um pequeno número dos maiores veículos de comunicação do Brasil foi consultado, num encontro em São Paulo, para dizer se havia interesse em participar de um projeto como o Comprova. Nessa reunião, ficou combinado que as redações iriam sugerir outros integrantes, num esforço para garantir a presença de veículos de todo o país. Nos meses seguintes, um grupo de diferentes conselheiros vindos das áreas acadêmica, jornalística e da sociedade civil também fez recomendações." />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
