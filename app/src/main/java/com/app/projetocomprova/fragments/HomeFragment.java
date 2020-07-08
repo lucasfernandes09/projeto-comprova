@@ -33,9 +33,15 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        //referenciação
         rvArtigos = view.findViewById(R.id.rvArtigos);
 
+        recuperarArtigos();
+        exibirArtigos();
+
+        return view;
+    }
+
+    public void recuperarArtigos() {
         RecuperarArtigos recuperarArtigos = new RecuperarArtigos();
         recuperarArtigos.execute();
         try {
@@ -43,14 +49,10 @@ public class HomeFragment extends Fragment {
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
-
-        exibirArtigos();
-
-        return view;
     }
 
     public void exibirArtigos() {
-        ArtigosAdapter adapter = new ArtigosAdapter(listaDeArtigos);
+        ArtigosAdapter adapter = new ArtigosAdapter(listaDeArtigos, getContext());
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         rvArtigos.setLayoutManager(layoutManager);
         rvArtigos.setHasFixedSize(true);

@@ -1,7 +1,7 @@
 package com.app.projetocomprova.adapters;
 
-import android.os.AsyncTask;
-import android.util.Log;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,17 +13,19 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.projetocomprova.Artigos;
 import com.app.projetocomprova.R;
+import com.app.projetocomprova.activities.ArtigoActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class ArtigosAdapter extends RecyclerView.Adapter<ArtigosAdapter.MyViewHolder> {
     private List<Artigos> listaDeArtigos;
-    //private Context context;
+    private Context context;
+    //private Artigos artigo;
 
-    public ArtigosAdapter(List<Artigos> listaDeArtigos) {
+    public ArtigosAdapter(List<Artigos> listaDeArtigos, Context context) {
         this.listaDeArtigos = listaDeArtigos;
-        //this.context = context;
+        this.context = context;
     }
 
     @NonNull
@@ -51,6 +53,8 @@ public class ArtigosAdapter extends RecyclerView.Adapter<ArtigosAdapter.MyViewHo
         }else if (artigo.getStatus().equals("Sátira")) {
             holder.ivBgImg.setImageAlpha(0);
         }
+
+        setClick(holder, artigo);
     }
 
     @Override
@@ -69,7 +73,7 @@ public class ArtigosAdapter extends RecyclerView.Adapter<ArtigosAdapter.MyViewHo
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        TextView tvTerm, tvDate, tvTitle, tvStatus, tvContent;
+        TextView tvTerm, tvDate, tvTitle, tvStatus, tvContent, tvVejaMais;
         ImageView ivImg, ivBgImg;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -79,9 +83,21 @@ public class ArtigosAdapter extends RecyclerView.Adapter<ArtigosAdapter.MyViewHo
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvStatus = itemView.findViewById(R.id.tvStatus);
             tvContent = itemView.findViewById(R.id.tvContent);
+            tvVejaMais = itemView.findViewById(R.id.tvVejaMais);
             ivImg = itemView.findViewById(R.id.ivImg);
             ivBgImg = itemView.findViewById(R.id.ivBgImg);
         }
+    }
+
+    public void setClick(MyViewHolder holder, final Artigos artigo) {
+        holder.tvVejaMais.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ArtigoActivity.class);
+                intent.putExtra("artigo", artigo);
+                context.startActivity(intent);
+            }
+        });
     }
 }
 

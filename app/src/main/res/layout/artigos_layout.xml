@@ -42,10 +42,9 @@
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
         android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:text="É verdadeiro que Bolsonaro tenha liberado auxílio de R$ 160 milhões a asilos proposto pelo Congresso"
         android:textSize="16dp"
         android:textStyle="bold"
@@ -109,7 +108,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ivImg" />
 
     <TextView
-        android:id="@+id/textView51"
+        android:id="@+id/tvVejaMais"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"

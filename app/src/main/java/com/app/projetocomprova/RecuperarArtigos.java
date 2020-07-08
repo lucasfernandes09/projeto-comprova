@@ -16,7 +16,6 @@ public class RecuperarArtigos extends AsyncTask<Void, Void, List<Artigos>> {
 
     @Override
     protected List<Artigos> doInBackground(Void... voids) {
-
         try {
             Document html = Jsoup.connect("https://projetocomprova.com.br/").get();
             Elements terms = html.select("h3.answer__term");
@@ -31,6 +30,7 @@ public class RecuperarArtigos extends AsyncTask<Void, Void, List<Artigos>> {
                 artigo.setTerm(terms.get(i).text());
                 artigo.setDate(configData(dates.get(i).text()));
                 artigo.setTitle(titles.get(i).text());
+                artigo.setLink(titles.get(i).attr("href"));
                 artigo.setImg(listaDeImgs.get(i).replace("background-image: url( ", "")
                         .replace(" );", "").replace("\"", ""));
                 artigo.setContent(contents.select("dd.answer__tag__details").get(i).text());
@@ -44,12 +44,6 @@ public class RecuperarArtigos extends AsyncTask<Void, Void, List<Artigos>> {
         }
 
         return listaDeArtigos;
-    }
-
-    @Override
-    protected void onPostExecute(List<Artigos> listaDeArtigos) {
-        super.onPostExecute(listaDeArtigos);
-
     }
 
     public String configData(String data) {
