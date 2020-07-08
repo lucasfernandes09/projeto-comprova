@@ -9,9 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.app.projetocomprova.R;
+import com.squareup.picasso.Picasso;
 
 
 public class WhatsappFragment extends Fragment {
@@ -28,6 +30,10 @@ public class WhatsappFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_whatsapp, container, false);
 
         btnEnviarWpp = view.findViewById(R.id.btnEnviarWpp);
+
+        ImageView iv = view.findViewById(R.id.ivTeste);
+        Picasso.get().load("https://i0.wp.com/projetocomprova.com.br/wp-content/uploads/2020/07/null-17.png?fit=640%2C240&ssl=1")
+                .into(iv);
 
         btnEnviarWpp.setOnClickListener(new View.OnClickListener() {
             @Override

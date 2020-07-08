@@ -4,7 +4,9 @@
     <color name="colorPrimaryLight">#ffff51</color>
     <color name="colorPrimaryDark">#c69f00</color>
     <color name="colorAccent">#000000</color>
+
     <color name="activityBackground">#e9ebee</color>
+    <color name="contentBackground">#fdf5ac</color>
 
     <!--<color name="subLayoutBackground">#CC0101</color>-->
 </resources>
