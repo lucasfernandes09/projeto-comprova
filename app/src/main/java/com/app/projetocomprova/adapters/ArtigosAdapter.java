@@ -1,6 +1,5 @@
 package com.app.projetocomprova.adapters;
 
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,11 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.projetocomprova.Artigos;
-import com.app.projetocomprova.CarregarImg;
 import com.app.projetocomprova.R;
 import com.squareup.picasso.Picasso;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class ArtigosAdapter extends RecyclerView.Adapter<ArtigosAdapter.MyViewHolder> {
@@ -42,15 +39,18 @@ public class ArtigosAdapter extends RecyclerView.Adapter<ArtigosAdapter.MyViewHo
         Artigos artigo = listaDeArtigos.get(position);
 
         holder.tvTerm.setText(artigo.getTerm());
+        holder.tvDate.setText(artigo.getDate());
         holder.tvTitle.setText(artigo.getTitle());
         holder.tvStatus.setText(artigo.getStatus());
         holder.tvContent.setText(artigo.getContent());
 
-        //CarregarImgs carregarImgs = new CarregarImgs(holder, artigo.getImg());
-        //carregarImgs.execute();
-        String imgUrl = artigo.getImg();
-        Picasso.get().load(imgUrl).into(holder.ivImg);
-        Log.i("infoRecuperar", imgUrl);
+        Picasso.get().load(artigo.getImg()).into(holder.ivImg);
+
+        if(!artigo.getStatus().equals("Comprovado")) {
+            holder.ivBgImg.setImageResource(R.drawable.ic_red_bg);
+        }else if (artigo.getStatus().equals("Sátira")) {
+            holder.ivBgImg.setImageAlpha(0);
+        }
     }
 
     @Override
@@ -70,7 +70,7 @@ public class ArtigosAdapter extends RecyclerView.Adapter<ArtigosAdapter.MyViewHo
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvTerm, tvDate, tvTitle, tvStatus, tvContent;
-        ImageView ivImg;
+        ImageView ivImg, ivBgImg;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -80,25 +80,8 @@ public class ArtigosAdapter extends RecyclerView.Adapter<ArtigosAdapter.MyViewHo
             tvStatus = itemView.findViewById(R.id.tvStatus);
             tvContent = itemView.findViewById(R.id.tvContent);
             ivImg = itemView.findViewById(R.id.ivImg);
+            ivBgImg = itemView.findViewById(R.id.ivBgImg);
         }
-    }
-
-    public static class CarregarImgs extends AsyncTask<Void, Void, Void> {
-
-        MyViewHolder holder;
-        String imgUrl;
-
-        public CarregarImgs(MyViewHolder holder, String imgUrl) {
-            this.holder = holder;
-            this.imgUrl = imgUrl;
-        }
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-
-            return null;
-        }
-
     }
 }
 

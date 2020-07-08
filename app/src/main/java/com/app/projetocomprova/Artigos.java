@@ -3,6 +3,7 @@ package com.app.projetocomprova;
 public class Artigos {
 
     private String term;
+    private String date;
     private String title;
     private String img;
     private String content;
@@ -14,6 +15,14 @@ public class Artigos {
 
     public void setTerm(String term) {
         this.term = term;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getTitle() {

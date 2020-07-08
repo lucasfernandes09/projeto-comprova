@@ -20,6 +20,7 @@ public class RecuperarArtigos extends AsyncTask<Void, Void, List<Artigos>> {
         try {
             Document html = Jsoup.connect("https://projetocomprova.com.br/").get();
             Elements terms = html.select("h3.answer__term");
+            Elements dates = html.select("span.answer__credits__date");
             Elements titles = html.select("a.answer__title__link");
             List<String> listaDeImgs = html.select("div.answer__image").eachAttr("style");
             Elements contents = html.select("section.answer__content");
@@ -28,6 +29,7 @@ public class RecuperarArtigos extends AsyncTask<Void, Void, List<Artigos>> {
             for(int i=0; i<terms.size(); i++) {
                 Artigos artigo = new Artigos();
                 artigo.setTerm(terms.get(i).text());
+                artigo.setDate(configData(dates.get(i).text()));
                 artigo.setTitle(titles.get(i).text());
                 artigo.setImg(listaDeImgs.get(i).replace("background-image: url( ", "")
                         .replace(" );", "").replace("\"", ""));
@@ -48,5 +50,13 @@ public class RecuperarArtigos extends AsyncTask<Void, Void, List<Artigos>> {
     protected void onPostExecute(List<Artigos> listaDeArtigos) {
         super.onPostExecute(listaDeArtigos);
 
+    }
+
+    public String configData(String data) {
+        String dataFormatada = data.substring(8,10) + "-";
+        dataFormatada += data.substring(5,7) + "-";
+        dataFormatada += data.substring(0,4);
+
+        return dataFormatada;
     }
 }
