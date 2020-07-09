@@ -32,7 +32,7 @@ public class ArtigosAdapter extends RecyclerView.Adapter<ArtigosAdapter.MyViewHo
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.artigos_layout, parent, false);
+                .inflate(R.layout.layout_artigo, parent, false);
         return new MyViewHolder(itemView);
     }
 

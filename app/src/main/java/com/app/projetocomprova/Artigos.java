@@ -3,6 +3,11 @@ package com.app.projetocomprova;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.util.List;
+
 public class Artigos implements Parcelable {
 
     private String term;
@@ -12,6 +17,10 @@ public class Artigos implements Parcelable {
     private String img;
     private String content;
     private String status;
+    private Element verifiedContent;
+    private Elements contentMain;
+    private List<String> listImgInvest;
+    private List<String> listImgVerif;
 
     public Artigos() {
     }
@@ -92,6 +101,38 @@ public class Artigos implements Parcelable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Element getVerifiedContent() {
+        return verifiedContent;
+    }
+
+    public void setVerifiedContent(Element verifiedContent) {
+        this.verifiedContent = verifiedContent;
+    }
+
+    public Elements getContentMain() {
+        return contentMain;
+    }
+
+    public void setContentMain(Elements contentMain) {
+        this.contentMain = contentMain;
+    }
+
+    public List<String> getListImgInvest() {
+        return listImgInvest;
+    }
+
+    public void setListImgInvest(List<String> listImgInvest) {
+        this.listImgInvest = listImgInvest;
+    }
+
+    public List<String> getListImgVerif() {
+        return listImgVerif;
+    }
+
+    public void setListImgVerif(List<String> listImgVerif) {
+        this.listImgVerif = listImgVerif;
     }
 
     @Override
