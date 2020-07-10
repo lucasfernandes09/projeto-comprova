@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.app.projetocomprova.Artigos;
+import com.app.projetocomprova.model.Artigos;
 import com.app.projetocomprova.R;
 import com.app.projetocomprova.activities.ArtigoActivity;
 import com.squareup.picasso.Picasso;

@@ -3,22 +3,19 @@ package com.app.projetocomprova.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ViewGroup;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.app.projetocomprova.Artigos;
+import com.app.projetocomprova.model.Artigos;
 import com.app.projetocomprova.R;
-import com.app.projetocomprova.RecuperarArtigos;
 import com.app.projetocomprova.RecuperarFullArtigo;
 import com.squareup.picasso.Picasso;
 
 import org.jsoup.nodes.Element;
-import org.w3c.dom.Text;
 
+import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 
 public class ArtigoActivity extends AppCompatActivity {
@@ -41,26 +38,26 @@ public class ArtigoActivity extends AppCompatActivity {
         //receber objeto de ArtigosAdapter
         artigo = getIntent().getParcelableExtra("artigo");
 
+        //actionBar
+        Objects.requireNonNull(getSupportActionBar()).setTitle(artigo.getTitle());
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         recuperarFullArtigo();
 
     }
 
     private void recuperarFullArtigo() {
-        RecuperarFullArtigo fullArtigo = new RecuperarFullArtigo(artigo.getLink());
+        RecuperarFullArtigo fullArtigo = new RecuperarFullArtigo(this, artigo.getLink());
         fullArtigo.execute();
+    }
 
-        try {
-            Artigos artigoContent = fullArtigo.get();
-            artigo.setContentMain(artigoContent.getContentMain());
-            artigo.setVerifiedContent(artigoContent.getVerifiedContent());
-            artigo.setListImgInvest(artigoContent.getListImgInvest());
-            artigo.setListImgVerif(artigoContent.getListImgVerif());
-
-            exibirContentArquivo();
-            setDesign();
-        } catch (ExecutionException | InterruptedException e) {
-            e.printStackTrace();
-        }
+    public void completarArquivo(Artigos artigoContent) {
+        artigo.setContentMain(artigoContent.getContentMain());
+        artigo.setVerifiedContent(artigoContent.getVerifiedContent());
+        artigo.setListImgInvest(artigoContent.getListImgInvest());
+        artigo.setListImgVerif(artigoContent.getListImgVerif());
+        exibirContentArquivo();
+        setDesign();
     }
 
     private void exibirContentArquivo() {
@@ -101,8 +98,11 @@ public class ArtigoActivity extends AppCompatActivity {
         //investigadores
         for(String img : artigo.getListImgInvest()) {
             ImageView imageView = new ImageView(this);
-            imageView.setLayoutParams(new LinearLayout.LayoutParams(180, 180));
-            imageView.setPadding(16,0,16,0);
+            LinearLayout.LayoutParams ln = new LinearLayout.LayoutParams(150, 150);
+            ln.setMargins(0, 4, 16, 4);
+            imageView.setLayoutParams(ln);
+            imageView.setBackgroundResource(R.drawable.bg_partners);
+            imageView.setElevation(5);
             Picasso.get().load(img).into(imageView);
             layoutInvest.addView(imageView);
         }
@@ -110,8 +110,11 @@ public class ArtigoActivity extends AppCompatActivity {
         //verificadores
         for(String img : artigo.getListImgVerif()) {
             ImageView imageView = new ImageView(this);
-            imageView.setLayoutParams(new LinearLayout.LayoutParams(180, 180));
-            imageView.setPadding(16,0,16,0);
+            LinearLayout.LayoutParams ln = new LinearLayout.LayoutParams(150, 150);
+            ln.setMargins(0, 4, 16, 4);
+            imageView.setLayoutParams(ln);
+            imageView.setBackgroundResource(R.drawable.bg_partners);
+            imageView.setElevation(5);
             Picasso.get().load(img).into(imageView);
             layoutVerif.addView(imageView);
         }
@@ -121,7 +124,7 @@ public class ArtigoActivity extends AppCompatActivity {
         tvTitle2.setText(artigo.getTitle());
         tvStatus2.setText(artigo.getStatus());
         tvContent2.setText(artigo.getContent());
-        tvVerified.setText(artigo.getVerifiedContent().text());
+        tvVerified.setText(artigo.getVerifiedContent());
 
         Picasso.get().load(artigo.getImg()).into(ivImg2);
 

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="16dp"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    android:elevation="3dp">
 
     <TextView
         android:id="@+id/tvTerm"
@@ -85,7 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:background="@android:color/white"
+        android:background="@drawable/bg_stroke"
         android:padding="8dp"
         android:text="Comprovado"
         android:textStyle="bold"

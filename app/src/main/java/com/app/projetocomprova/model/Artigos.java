@@ -1,4 +1,4 @@
-package com.app.projetocomprova;
+package com.app.projetocomprova.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -17,7 +17,7 @@ public class Artigos implements Parcelable {
     private String img;
     private String content;
     private String status;
-    private Element verifiedContent;
+    private String verifiedContent;
     private Elements contentMain;
     private List<String> listImgInvest;
     private List<String> listImgVerif;
@@ -103,11 +103,11 @@ public class Artigos implements Parcelable {
         this.status = status;
     }
 
-    public Element getVerifiedContent() {
+    public String getVerifiedContent() {
         return verifiedContent;
     }
 
-    public void setVerifiedContent(Element verifiedContent) {
+    public void setVerifiedContent(String verifiedContent) {
         this.verifiedContent = verifiedContent;
     }
 

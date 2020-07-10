@@ -1,5 +1,6 @@
 package com.app.projetocomprova.fragments;
 
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,19 +11,24 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
-import com.app.projetocomprova.Artigos;
+import com.app.projetocomprova.model.Artigos;
 import com.app.projetocomprova.R;
 import com.app.projetocomprova.RecuperarArtigos;
 import com.app.projetocomprova.adapters.ArtigosAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 
 public class HomeFragment extends Fragment {
-    private List<Artigos> listaDeArtigos;
     private RecyclerView rvArtigos;
+    private Button btnMais;
+    private ArtigosAdapter adapter;
+    private String URL = "https://projetocomprova.com.br/page/";
+    private List<Artigos> listaDeArtigos = new ArrayList<>();
+    private int pag = 1;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -34,30 +40,40 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         rvArtigos = view.findViewById(R.id.rvArtigos);
+        btnMais = view.findViewById(R.id.btnMais);
 
-        recuperarArtigos();
-        exibirArtigos();
+        recuperarArtigos(URL + 1);
 
         return view;
     }
 
-    public void recuperarArtigos() {
-        RecuperarArtigos recuperarArtigos = new RecuperarArtigos();
-        recuperarArtigos.execute();
-        try {
-            listaDeArtigos = recuperarArtigos.get();
-        } catch (ExecutionException | InterruptedException e) {
-            e.printStackTrace();
-        }
+    private void setClick() {
+        btnMais.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //n° de artigos atuais
+                int pag = adapter.getItemCount()/10 + 1;
+                //busca quando > 10
+                if(pag > 1) {
+                    Log.i("artigo", URL + pag);
+                    recuperarArtigos(URL + pag);
+                }
+            }
+        });
     }
 
-    public void exibirArtigos() {
-        ArtigosAdapter adapter = new ArtigosAdapter(listaDeArtigos, getContext());
+    private void recuperarArtigos(String url) {
+        RecuperarArtigos recuperarArtigos = new RecuperarArtigos(this, url, listaDeArtigos);
+        recuperarArtigos.execute();
+    }
+
+    public void exibirArtigos(List<Artigos> listaDeArtigos) {
+        adapter = new ArtigosAdapter(listaDeArtigos, getContext());
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         rvArtigos.setLayoutManager(layoutManager);
         rvArtigos.setHasFixedSize(true);
         rvArtigos.setAdapter(adapter);
-
-
+        setClick();
     }
+
 }

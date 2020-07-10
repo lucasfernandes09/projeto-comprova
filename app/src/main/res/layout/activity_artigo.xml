@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="verificação"
+            android:text="..."
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,7 +38,7 @@
             android:layout_marginTop="16dp"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:text="Site engana ao afirmar que há consenso médico para tratamento de covid-19"
+            android:text="..."
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,9 +77,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:background="@android:color/white"
+            android:background="@drawable/bg_stroke"
             android:padding="8dp"
-            android:text="Comprovado"
+            android:text="..."
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/ivImg2" />
@@ -93,7 +93,7 @@
             android:layout_marginEnd="16dp"
             android:background="@color/contentBackground"
             android:padding="16dp"
-            android:text="Projeto foi apresentado no plenário da Câmara pela deputada federal Leandre (PV-PR) em 14 de abril, aprovado pelo Congresso e sancionado pelo presidente da República em 29 de junho, último dia do prazo para tal, com quatro vetos"
+            android:text="..."
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -104,10 +104,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
-            android:text="Verificado por: "
+            android:text="Verificado por:"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/horizontalScrollView2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+            app:layout_constraintTop_toTopOf="@+id/horizontalScrollView2" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -123,11 +124,20 @@
                 android:id="@+id/tvVerified"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingStart="16dp"
-                android:paddingEnd="16dp"
-                android:text="Conteúdo verificado: Site Covid Tem Tratamento Sim, que afirma que “após meses observando o desenvolvimento da covid-19 em vários países, a comunidade médica internacional tem a convicção de uma estratégia de tratamento resolutiva para a covid-19”. A página, que ficou fora do ar entre 3 e 7 de julho, informava os medicamentos para o “tratamento”."
-                android:textColor="@android:color/black"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_stroke"
+                android:padding="16dp"
+                android:text="..."
                 android:textSize="12sp" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="24dp"
+                android:background="?android:attr/listDivider" />
         </LinearLayout>
 
         <ImageView
@@ -160,14 +170,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageView43"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/horizontalScrollView2"
+            app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView2"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="?attr/actionModeShareDrawable" />
 
@@ -184,13 +194,14 @@
 
         <HorizontalScrollView
             android:id="@+id/horizontalScrollView"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:scrollbars="none"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4">
+            app:layout_constraintStart_toEndOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/tvDate2">
 
             <LinearLayout
                 android:id="@+id/layoutInvest"
@@ -205,13 +216,14 @@
 
         <HorizontalScrollView
             android:id="@+id/horizontalScrollView2"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
             android:scrollbars="none"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView52">
+            app:layout_constraintStart_toEndOf="@+id/textView52"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
             <LinearLayout
                 android:id="@+id/layoutVerif"
@@ -229,10 +241,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="Investigado por: "
+            android:text="Investigado por:"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/horizontalScrollView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTerm2" />
+            app:layout_constraintTop_toTopOf="@+id/horizontalScrollView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
