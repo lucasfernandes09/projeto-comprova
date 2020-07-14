@@ -1,6 +1,5 @@
 package com.app.projetocomprova.fragments;
 
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,7 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ProgressBar;
 
+import com.app.projetocomprova.activities.SplashScreenActivity;
 import com.app.projetocomprova.model.Artigos;
 import com.app.projetocomprova.R;
 import com.app.projetocomprova.RecuperarArtigos;
@@ -28,7 +29,7 @@ public class HomeFragment extends Fragment {
     private ArtigosAdapter adapter;
     private String URL = "https://projetocomprova.com.br/page/";
     private List<Artigos> listaDeArtigos = new ArrayList<>();
-    private int pag = 1;
+    private ProgressBar pbLoadBtnMais;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -39,15 +40,32 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        //referenciação
         rvArtigos = view.findViewById(R.id.rvArtigos);
         btnMais = view.findViewById(R.id.btnMais);
+        pbLoadBtnMais = view.findViewById(R.id.pbLoadBtnMais);
 
-        recuperarArtigos(URL + 1);
+        //receber lista de artigos de SplashScreen
+        listaDeArtigos = getActivity().getIntent().getParcelableArrayListExtra("artigos");
+
+        exibirArtigos(listaDeArtigos);
 
         return view;
     }
 
-    private void setClick() {
+
+    public void exibirArtigos(List<Artigos> listaDeArtigos) {
+        adapter = new ArtigosAdapter(listaDeArtigos, getContext());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
+        rvArtigos.setLayoutManager(layoutManager);
+        rvArtigos.setHasFixedSize(true);
+        rvArtigos.setAdapter(adapter);
+
+        setClickBtnMais();
+        pbLoadBtnMais.setVisibility(View.GONE);
+    }
+
+    private void setClickBtnMais() {
         btnMais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,7 +73,7 @@ public class HomeFragment extends Fragment {
                 int pag = adapter.getItemCount()/10 + 1;
                 //busca quando > 10
                 if(pag > 1) {
-                    Log.i("artigo", URL + pag);
+                    pbLoadBtnMais.setVisibility(View.VISIBLE);
                     recuperarArtigos(URL + pag);
                 }
             }
@@ -65,15 +83,6 @@ public class HomeFragment extends Fragment {
     private void recuperarArtigos(String url) {
         RecuperarArtigos recuperarArtigos = new RecuperarArtigos(this, url, listaDeArtigos);
         recuperarArtigos.execute();
-    }
-
-    public void exibirArtigos(List<Artigos> listaDeArtigos) {
-        adapter = new ArtigosAdapter(listaDeArtigos, getContext());
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
-        rvArtigos.setLayoutManager(layoutManager);
-        rvArtigos.setHasFixedSize(true);
-        rvArtigos.setAdapter(adapter);
-        setClick();
     }
 
 }

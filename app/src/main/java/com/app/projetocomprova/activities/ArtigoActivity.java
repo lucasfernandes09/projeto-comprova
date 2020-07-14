@@ -3,9 +3,13 @@ package com.app.projetocomprova.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.app.projetocomprova.model.Artigos;
@@ -15,6 +19,8 @@ import com.squareup.picasso.Picasso;
 
 import org.jsoup.nodes.Element;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 
@@ -23,6 +29,7 @@ public class ArtigoActivity extends AppCompatActivity {
     private LinearLayout linearLayout, layoutInvest, layoutVerif;
     private TextView tvTerm2, tvDate2, tvTitle2, tvStatus2, tvContent2, tvVerified;
     private ImageView ivImg2, ivBgImg2;
+    private ProgressBar pbLoadContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +41,7 @@ public class ArtigoActivity extends AppCompatActivity {
         tvTerm2 = findViewById(R.id.tvTerm2);tvDate2 = findViewById(R.id.tvDate2);tvTitle2 = findViewById(R.id.tvTitle2);
         tvStatus2 = findViewById(R.id.tvStatus2);tvContent2 = findViewById(R.id.tvContent2); tvVerified = findViewById(R.id.tvVerified);
         ivImg2 = findViewById(R.id.ivImg2); ivBgImg2 = findViewById(R.id.ivBgImg2);
+        pbLoadContent = findViewById(R.id.pbLoadContent);
 
         //receber objeto de ArtigosAdapter
         artigo = getIntent().getParcelableExtra("artigo");
@@ -42,8 +50,25 @@ public class ArtigoActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setTitle(artigo.getTitle());
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        exibicaoInicial();
         recuperarFullArtigo();
 
+    }
+
+    private void exibicaoInicial() {
+        tvTerm2.setText(artigo.getTerm());
+        tvDate2.setText(artigo.getDate());
+        tvTitle2.setText(artigo.getTitle());
+        tvStatus2.setText(artigo.getStatus());
+        tvContent2.setText(artigo.getContent());
+
+        Picasso.get().load(artigo.getImg()).into(ivImg2);
+
+        if(!artigo.getStatus().equals("Comprovado")) {
+            ivBgImg2.setImageResource(R.drawable.ic_red_bg);
+        }else if (artigo.getStatus().equals("Sátira")) {
+            ivBgImg2.setImageAlpha(0);
+        }
     }
 
     private void recuperarFullArtigo() {
@@ -58,6 +83,7 @@ public class ArtigoActivity extends AppCompatActivity {
         artigo.setListImgVerif(artigoContent.getListImgVerif());
         exibirContentArquivo();
         setDesign();
+        pbLoadContent.setVisibility(View.GONE);
     }
 
     private void exibirContentArquivo() {
@@ -69,11 +95,36 @@ public class ArtigoActivity extends AppCompatActivity {
                 linearLayout.addView(imageView);
 
             }else if(element.is("p")) {
-                TextView tvParagrafo = new TextView(this);
-                tvParagrafo.setText(element.text());
-                tvParagrafo.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                tvParagrafo.setPadding(16, 8, 16, 8);
-                linearLayout.addView(tvParagrafo);
+
+                if(element.getAllElements().hasAttr("href")) {
+                    SpannableString ss = new SpannableString(element.text());
+                    List<String> listaDeLinks = element.getAllElements().eachAttr("href");
+                    //varrer o elemento e a cada link pegar o texto(do link) e setar um span(o qual precisa do indice inicial e final do texto do link)
+
+
+                    //texto do link
+                    Log.i("artigos", element.getAllElements().select("a").text());
+
+                    //index inicial
+                    for(int i=0; i<element.getAllElements().select("a").size(); i++) {
+                    Log.i("artigos", element.text().indexOf(element.getAllElements().select("a").get(i).text()) + "");
+                    }
+
+                    //index final
+                    for(int i=0; i<element.getAllElements().select("a").size(); i++) {
+                        Log.i("artigos", element.getAllElements().select("a").get(i).text().length() + "");
+                    }
+
+
+
+                }else {
+                    TextView tvParagrafo = new TextView(this);
+                    tvParagrafo.setText(element.text());
+                    tvParagrafo.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                    tvParagrafo.setPadding(16, 8, 16, 8);
+                    linearLayout.addView(tvParagrafo);
+                }
+
             }
             else if(element.is("h3")) {
                 TextView tvTitle = new TextView(this);
@@ -119,20 +170,8 @@ public class ArtigoActivity extends AppCompatActivity {
             layoutVerif.addView(imageView);
         }
 
-        tvTerm2.setText(artigo.getTerm());
-        tvDate2.setText(artigo.getDate());
-        tvTitle2.setText(artigo.getTitle());
-        tvStatus2.setText(artigo.getStatus());
-        tvContent2.setText(artigo.getContent());
+        //conteúdo verificado
         tvVerified.setText(artigo.getVerifiedContent());
-
-        Picasso.get().load(artigo.getImg()).into(ivImg2);
-
-        if(!artigo.getStatus().equals("Comprovado")) {
-            ivBgImg2.setImageResource(R.drawable.ic_red_bg);
-        }else if (artigo.getStatus().equals("Sátira")) {
-            ivBgImg2.setImageAlpha(0);
-        }
     }
 
 

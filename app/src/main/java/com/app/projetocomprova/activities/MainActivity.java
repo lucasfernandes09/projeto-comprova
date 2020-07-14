@@ -19,8 +19,11 @@ import com.app.projetocomprova.fragments.HomeFragment;
 import com.app.projetocomprova.fragments.ParceirosFragment;
 import com.app.projetocomprova.fragments.SobreFragment;
 import com.app.projetocomprova.fragments.WhatsappFragment;
+import com.app.projetocomprova.model.Artigos;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity

@@ -1,8 +1,11 @@
 package com.app.projetocomprova;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.app.projetocomprova.activities.MainActivity;
+import com.app.projetocomprova.activities.SplashScreenActivity;
 import com.app.projetocomprova.fragments.HomeFragment;
 import com.app.projetocomprova.model.Artigos;
 
@@ -15,20 +18,30 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecuperarArtigos extends AsyncTask<Void, Void, Void> {
+public class RecuperarArtigos extends AsyncTask<Void, Void, List<Artigos>> {
 
     private List<Artigos> listaDeArtigos = new ArrayList<>();
     private WeakReference<HomeFragment> homeFragmentWeakReference;
+    private WeakReference<SplashScreenActivity> splashScreenActivityWeakReference;
     private String url;
+    private Boolean splashScreen;
 
     public RecuperarArtigos(HomeFragment homeFragment, String url, List<Artigos> listaDeArtigos) {
         this.homeFragmentWeakReference = new WeakReference<>(homeFragment);
         this.url = url;
         this.listaDeArtigos = listaDeArtigos;
+        this.splashScreen = false;
+    }
+
+    //construtor da SplashScreen
+    public RecuperarArtigos(SplashScreenActivity splashScreenActivity ,String url) {
+        this.splashScreenActivityWeakReference = new WeakReference<>(splashScreenActivity);
+        this.url = url;
+        this.splashScreen = true;
     }
 
     @Override
-    protected Void doInBackground(Void... voids) {
+    protected List<Artigos> doInBackground(Void... voids) {
         try {
             Document html = Jsoup.connect(url).get();
             Elements terms = html.select("h3.answer__term");
@@ -55,14 +68,22 @@ public class RecuperarArtigos extends AsyncTask<Void, Void, Void> {
             e.printStackTrace();
         }
 
-        return null;
+        return listaDeArtigos;
     }
 
     @Override
-    protected void onPostExecute(Void aVoid) {
-        super.onPostExecute(aVoid);
-        if(homeFragmentWeakReference.get() != null) {
-            homeFragmentWeakReference.get().exibirArtigos(listaDeArtigos);
+    protected void onPostExecute(List<Artigos> listaDeArtigos) {
+        super.onPostExecute(listaDeArtigos);
+        if (splashScreen) {
+            if(splashScreenActivityWeakReference.get() != null) {
+                Intent intent = new Intent(splashScreenActivityWeakReference.get(), MainActivity.class);
+                intent.putParcelableArrayListExtra("artigos", (ArrayList<Artigos>) listaDeArtigos);
+                splashScreenActivityWeakReference.get().startActivity(intent);
+            }
+        }else {
+            if(homeFragmentWeakReference.get() != null) {
+                homeFragmentWeakReference.get().exibirArtigos(this.listaDeArtigos);
+            }
         }
     }
 
