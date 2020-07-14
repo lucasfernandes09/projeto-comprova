@@ -1,10 +1,17 @@
 package com.app.projetocomprova.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextPaint;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -88,35 +95,53 @@ public class ArtigoActivity extends AppCompatActivity {
 
     private void exibirContentArquivo() {
         for(Element element : artigo.getContentMain()) {
+            //Imagens
             if(element.is("img") && element.hasAttr("class")) {
                 ImageView imageView = new ImageView(this);
                 imageView.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                 Picasso.get().load(element.attr("src")).into(imageView);
                 linearLayout.addView(imageView);
 
+            //paragrafos
             }else if(element.is("p")) {
-
+                //paragrafo com link
                 if(element.getAllElements().hasAttr("href")) {
                     SpannableString ss = new SpannableString(element.text());
-                    List<String> listaDeLinks = element.getAllElements().eachAttr("href");
+
                     //varrer o elemento e a cada link pegar o texto(do link) e setar um span(o qual precisa do indice inicial e final do texto do link)
-
-
-                    //texto do link
-                    Log.i("artigos", element.getAllElements().select("a").text());
-
-                    //index inicial
                     for(int i=0; i<element.getAllElements().select("a").size(); i++) {
-                    Log.i("artigos", element.text().indexOf(element.getAllElements().select("a").get(i).text()) + "");
+                        final String link = element.getAllElements().select("a").get(i).attr("href");
+                        final String textoLink = element.getAllElements().select("a").get(i).text();
+                        int indexInicial = element.text().indexOf(textoLink);
+                        int indexFinal = indexInicial + textoLink.length();
+
+                        ClickableSpan clickableSpan = new ClickableSpan() {
+                            @Override
+                            public void onClick(@NonNull View widget) {
+                                Intent intent = new Intent(ArtigoActivity.this, WebViewLinkActivity.class);
+                                intent.putExtra("link", link);
+                                intent.putExtra("texto", textoLink);
+                                startActivity(intent);
+                            }
+
+                            @Override
+                            public void updateDrawState(@NonNull TextPaint ds) {
+                                super.updateDrawState(ds);
+                                ds.setColor(getResources().getColor(R.color.colorPrimaryDark));
+                            }
+                        };
+
+                        ss.setSpan(clickableSpan, indexInicial, indexFinal, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     }
 
-                    //index final
-                    for(int i=0; i<element.getAllElements().select("a").size(); i++) {
-                        Log.i("artigos", element.getAllElements().select("a").get(i).text().length() + "");
-                    }
+                    TextView tvParagrafoLink = new TextView(this);
+                    tvParagrafoLink.setText(ss);
+                    tvParagrafoLink.setMovementMethod(LinkMovementMethod.getInstance());
+                    tvParagrafoLink.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                    tvParagrafoLink.setPadding(16, 8, 16, 8);
+                    linearLayout.addView(tvParagrafoLink);
 
-
-
+                //paragrafo sem link
                 }else {
                     TextView tvParagrafo = new TextView(this);
                     tvParagrafo.setText(element.text());
@@ -125,8 +150,8 @@ public class ArtigoActivity extends AppCompatActivity {
                     linearLayout.addView(tvParagrafo);
                 }
 
-            }
-            else if(element.is("h3")) {
+            //titulos
+            }else if(element.is("h3")) {
                 TextView tvTitle = new TextView(this);
                 tvTitle.setText(element.text());
                 tvTitle.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
@@ -134,6 +159,7 @@ public class ArtigoActivity extends AppCompatActivity {
                 tvTitle.setTextSize(24);
                 linearLayout.addView(tvTitle);
 
+            //subtitulos
             }else if(element.is("h4")) {
                 TextView tvSubTitle = new TextView(this);
                 tvSubTitle.setText(element.text());
@@ -174,5 +200,13 @@ public class ArtigoActivity extends AppCompatActivity {
         tvVerified.setText(artigo.getVerifiedContent());
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 }

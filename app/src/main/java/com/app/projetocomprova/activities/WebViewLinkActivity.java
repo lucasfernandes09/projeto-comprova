@@ -4,37 +4,40 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.annotation.SuppressLint;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
 import com.app.projetocomprova.R;
 
 import java.util.Objects;
 
-public class PergunteActivity extends AppCompatActivity {
-    private ProgressBar pbPergunte;
-    private WebView webView;
+public class WebViewLinkActivity extends AppCompatActivity {
+    private WebView wvLink;
+    private ProgressBar pbWebView;
+    private String link, textoLink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pergunte);
+        setContentView(R.layout.activity_web_view_link);
+
+        //receber link de ArtigoActivity
+        link = getIntent().getStringExtra("link");
+        textoLink = getIntent().getStringExtra("texto");
 
         //toolbar
-        Toolbar toolbarPergunte = findViewById(R.id.toolbarPergunte);
-        toolbarPergunte.setElevation(0);
-        setSupportActionBar(toolbarPergunte);
+        Toolbar toolbarWebView = findViewById(R.id.toolbarWebView);
+        toolbarWebView.setTitle(textoLink);
+        setSupportActionBar(toolbarWebView);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         //ref
-        pbPergunte = findViewById(R.id.pbPergunte);
-        webView = findViewById(R.id.webView);
+        wvLink = findViewById(R.id.wvLink);
+        pbWebView = findViewById(R.id.pbWebView);
 
         iniciarWebView();
 
@@ -42,18 +45,18 @@ public class PergunteActivity extends AppCompatActivity {
 
     @SuppressLint("SetJavaScriptEnabled")
     private void iniciarWebView() {
-        webView.setWebChromeClient(new MyWebChromeClient());
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl("https://projetocomprova.com.br/pergunte-ao-comprova-2/");
+        wvLink.setWebChromeClient(new MyWebChromeClient());
+        wvLink.getSettings().setJavaScriptEnabled(true);
+        wvLink.loadUrl(link);
     }
 
     public class MyWebChromeClient extends WebChromeClient {
         @Override
         public void onProgressChanged(WebView view, int newProgress) {
             super.onProgressChanged(view, newProgress);
-            pbPergunte.setProgress(newProgress);
-            if(pbPergunte.getProgress() == 100) {
-                pbPergunte.setVisibility(View.GONE);
+            pbWebView.setProgress(newProgress);
+            if(pbWebView.getProgress() == 100) {
+                pbWebView.setVisibility(View.GONE);
             }
         }
     }
@@ -66,4 +69,5 @@ public class PergunteActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }
