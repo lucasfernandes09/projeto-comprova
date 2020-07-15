@@ -21,6 +21,8 @@ public class Artigos implements Parcelable {
     private Elements contentMain;
     private List<String> listImgInvest;
     private List<String> listImgVerif;
+    private String shareFacebook;
+    private String shareTwitter;
 
     public Artigos() {
     }
@@ -33,6 +35,8 @@ public class Artigos implements Parcelable {
         img = in.readString();
         content = in.readString();
         status = in.readString();
+        shareFacebook = in.readString();
+        shareTwitter = in.readString();
     }
 
     public static final Creator<Artigos> CREATOR = new Creator<Artigos>() {
@@ -135,6 +139,22 @@ public class Artigos implements Parcelable {
         this.listImgVerif = listImgVerif;
     }
 
+    public String getShareFacebook() {
+        return shareFacebook;
+    }
+
+    public void setShareFacebook(String shareFacebook) {
+        this.shareFacebook = shareFacebook;
+    }
+
+    public String getShareTwitter() {
+        return shareTwitter;
+    }
+
+    public void setShareTwitter(String shareTwitter) {
+        this.shareTwitter = shareTwitter;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -149,5 +169,7 @@ public class Artigos implements Parcelable {
         dest.writeString(img);
         dest.writeString(content);
         dest.writeString(status);
+        dest.writeString(shareFacebook);
+        dest.writeString(shareTwitter);
     }
 }

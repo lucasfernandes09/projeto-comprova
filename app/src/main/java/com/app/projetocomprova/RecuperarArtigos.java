@@ -15,6 +15,7 @@ import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.lang.ref.WeakReference;
+import java.security.acl.LastOwnerException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,6 +50,7 @@ public class RecuperarArtigos extends AsyncTask<Void, Void, List<Artigos>> {
             Elements titles = html.select("a.answer__title__link");
             List<String> listaDeImgs = html.select("div.answer__image").eachAttr("style");
             Elements contents = html.select("section.answer__content");
+            Elements sharing = html.getElementsByClass("answer__content answer__content__sm-link__container");
 
             for(int i=0; i<terms.size(); i++) {
                 Artigos artigo = new Artigos();
@@ -60,6 +62,8 @@ public class RecuperarArtigos extends AsyncTask<Void, Void, List<Artigos>> {
                         .replace(" );", "").replace("\"", ""));
                 artigo.setContent(contents.select("dd.answer__tag__details").get(i).text());
                 artigo.setStatus(contents.select("dt.answer__tag").get(i).text());
+                artigo.setShareFacebook(sharing.get(i).select("a").get(0).attr("href"));
+                artigo.setShareTwitter(sharing.get(i).select("a").get(1).attr("href"));
 
                 listaDeArtigos.add(artigo);
             }

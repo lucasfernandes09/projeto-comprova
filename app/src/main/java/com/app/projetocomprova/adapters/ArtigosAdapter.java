@@ -2,12 +2,15 @@ package com.app.projetocomprova.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -55,7 +58,10 @@ public class ArtigosAdapter extends RecyclerView.Adapter<ArtigosAdapter.MyViewHo
             holder.ivBgImg.setImageAlpha(0);
         }
 
-        setClick(holder, artigo);
+        setClickBtnVejaMais(holder, artigo);
+        setClickFacebook(holder, artigo.getShareFacebook());
+        setClickTwitter(holder, artigo.getShareTwitter());
+        setClickWpp(holder, artigo);
     }
 
     @Override
@@ -76,7 +82,7 @@ public class ArtigosAdapter extends RecyclerView.Adapter<ArtigosAdapter.MyViewHo
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvTerm, tvDate, tvTitle, tvStatus, tvContent;
         Button btnVejaMais;
-        ImageView ivImg, ivBgImg;
+        ImageView ivImg, ivBgImg, ivFacebook, ivTwitter, ivWpp;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -88,10 +94,13 @@ public class ArtigosAdapter extends RecyclerView.Adapter<ArtigosAdapter.MyViewHo
             btnVejaMais = itemView.findViewById(R.id.btnVejaMais);
             ivImg = itemView.findViewById(R.id.ivImg);
             ivBgImg = itemView.findViewById(R.id.ivBgImg);
+            ivFacebook = itemView.findViewById(R.id.ivFacebook);
+            ivTwitter = itemView.findViewById(R.id.ivTwitter);
+            ivWpp = itemView.findViewById(R.id.ivWpp);
         }
     }
 
-    public void setClick(MyViewHolder holder, final Artigos artigo) {
+    private void setClickBtnVejaMais(MyViewHolder holder, final Artigos artigo) {
         holder.btnVejaMais.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,6 +110,51 @@ public class ArtigosAdapter extends RecyclerView.Adapter<ArtigosAdapter.MyViewHo
             }
         });
     }
+
+    private void setClickFacebook(MyViewHolder holder, final String linkFacebook) {
+        holder.ivFacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent facebookIntent = new Intent(Intent.ACTION_VIEW);
+                try{
+                    facebookIntent.setData(Uri.parse("fb://facewebmodal/f?href=" + linkFacebook));
+                    context.startActivity(facebookIntent);
+                }catch (Exception e) {
+                    facebookIntent.setData(Uri.parse(linkFacebook));
+                    context.startActivity(facebookIntent);
+                }
+            }
+        });
+    }
+
+    private void setClickTwitter(MyViewHolder holder, final String linkTwitter) {
+        holder.ivTwitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(linkTwitter));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        });
+    }
+
+    private void setClickWpp(MyViewHolder holder, final Artigos artigo) {
+        holder.ivWpp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent wppIntent = new Intent(Intent.ACTION_SEND);
+                    wppIntent.putExtra(Intent.EXTRA_TEXT, artigo.getLink());
+                    wppIntent.setType("text/plain");
+                    wppIntent.setPackage("com.whatsapp");
+                    context.startActivity(wppIntent);
+                }catch (Exception e) {
+                    Toast.makeText(context, "WhatsApp não instalado", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+
 }
 
 
