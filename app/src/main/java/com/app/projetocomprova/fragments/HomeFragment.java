@@ -1,5 +1,7 @@
 package com.app.projetocomprova.fragments;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.app.projetocomprova.activities.SplashScreenActivity;
 import com.app.projetocomprova.model.Artigos;
@@ -30,6 +33,9 @@ public class HomeFragment extends Fragment {
     private String URL = "https://projetocomprova.com.br/page/";
     private List<Artigos> listaDeArtigos = new ArrayList<>();
     private ProgressBar pbLoadBtnMais;
+    private TextView tvAbraji, tvFirstDraft;
+    final private String ABRAJI_LINK = "https://abraji.org.br/";
+    final private String FD_LINK = "https://firstdraftnews.org/";
 
     public HomeFragment() {
         // Required empty public constructor
@@ -44,9 +50,12 @@ public class HomeFragment extends Fragment {
         rvArtigos = view.findViewById(R.id.rvArtigos);
         btnMais = view.findViewById(R.id.btnMais);
         pbLoadBtnMais = view.findViewById(R.id.pbLoadBtnMais);
+        tvAbraji = view.findViewById(R.id.tvAbraji); tvFirstDraft = view.findViewById(R.id.tvFirstDraft);
 
         //receber lista de artigos de SplashScreen
         listaDeArtigos = getActivity().getIntent().getParcelableArrayListExtra("artigos");
+
+        setClickFooter();
 
         exibirArtigos(listaDeArtigos);
 
@@ -83,6 +92,22 @@ public class HomeFragment extends Fragment {
     private void recuperarArtigos(String url) {
         RecuperarArtigos recuperarArtigos = new RecuperarArtigos(this, url, listaDeArtigos);
         recuperarArtigos.execute();
+    }
+
+    private void setClickFooter() {
+        tvAbraji.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(ABRAJI_LINK)));
+            }
+        });
+
+        tvFirstDraft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(FD_LINK)));
+            }
+        });
     }
 
 }

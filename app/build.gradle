@@ -40,4 +40,8 @@ dependencies {
     //picasso
     implementation 'com.squareup.picasso:picasso:2.71828'
 
+    // (Java only) WorkManager
+    def work_version = "2.3.4"
+    implementation "androidx.work:work-runtime:$work_version"
+
 }

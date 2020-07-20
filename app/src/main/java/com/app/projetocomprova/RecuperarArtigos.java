@@ -34,11 +34,14 @@ public class RecuperarArtigos extends AsyncTask<Void, Void, List<Artigos>> {
         this.splashScreen = false;
     }
 
-    //construtor da SplashScreen
     public RecuperarArtigos(SplashScreenActivity splashScreenActivity ,String url) {
         this.splashScreenActivityWeakReference = new WeakReference<>(splashScreenActivity);
         this.url = url;
         this.splashScreen = true;
+    }
+
+    public RecuperarArtigos(String url) {
+        this.url = url;
     }
 
     @Override

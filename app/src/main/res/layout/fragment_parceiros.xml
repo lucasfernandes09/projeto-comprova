@@ -34,7 +34,8 @@
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:background="@android:color/white">
 
             <TableRow
@@ -316,7 +317,8 @@
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:background="@android:color/white">
 
             <TableRow
@@ -355,7 +357,8 @@
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:background="@android:color/white">
 
             <TableRow
@@ -368,7 +371,7 @@
                     android:layout_width="80dp"
                     android:layout_height="60dp"
                     android:layout_margin="8dp"
-                    app:srcCompat="@drawable/wpp_logo" />
+                    app:srcCompat="@drawable/ic_whatsapp" />
 
                 <ImageView
                     android:id="@+id/imageView33"
@@ -428,7 +431,8 @@
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
             android:background="@android:color/white">
 
             <TableRow

@@ -3,11 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:scrollbars="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:descendantFocusability="blocksDescendants"
+        android:nestedScrollingEnabled="false"
         tools:context=".fragments.HomeFragment">
 
         <TextView
@@ -44,17 +47,47 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pbLoadBtnMais" />
 
-        <TextView
-            android:id="@+id/textView47"
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:background="@android:color/white"
-            android:text="TextView\n\n\n\n"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnMais" />
+            app:layout_constraintTop_toBottomOf="@+id/btnMais"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageView41"
+                android:layout_width="100dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                app:srcCompat="@drawable/ic_crosscheck" />
+
+            <TextView
+                android:id="@+id/tvAbraji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:drawableEnd="@drawable/abraji"
+                android:gravity="center_vertical"
+                android:text="Liderado por " />
+
+            <TextView
+                android:id="@+id/tvFirstDraft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:drawableBottom="@drawable/first_draft"
+                android:drawablePadding="8dp"
+                android:text="Comprova é uma iniciativa da " />
+
+        </LinearLayout>
 
         <ProgressBar
             android:id="@+id/pbLoadBtnMais"

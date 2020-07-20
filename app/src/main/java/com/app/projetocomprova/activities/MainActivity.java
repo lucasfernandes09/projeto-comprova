@@ -4,14 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.work.Constraints;
+import androidx.work.ExistingPeriodicWorkPolicy;
+import androidx.work.NetworkType;
+import androidx.work.PeriodicWorkRequest;
+import androidx.work.WorkManager;
 
+import com.app.projetocomprova.NotificacaoWorker;
 import com.app.projetocomprova.R;
 import com.app.projetocomprova.fragments.ArquivosFragment;
 import com.app.projetocomprova.fragments.ContatoFragment;
@@ -26,6 +34,7 @@ import com.google.android.material.navigation.NavigationView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
@@ -42,7 +51,10 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setLogo(R.drawable.ic_comprova_logo);
         setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayShowTitleEnabled(false);
+        }
 
         //navigationView
         drawerLayout =  findViewById(R.id.drawerLayout);
@@ -53,6 +65,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         iniciarHome();
+        notificacaoPeriodica();
 
     }
 
@@ -61,6 +74,20 @@ public class MainActivity extends AppCompatActivity
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.contentLayout, homeFragment);
         transaction.commit();
+    }
+
+    private void notificacaoPeriodica() {
+        Constraints constraints = new Constraints.Builder()
+                .setRequiredNetworkType(NetworkType.CONNECTED)
+                .build();
+
+        PeriodicWorkRequest pwRequest =
+                new PeriodicWorkRequest.Builder(NotificacaoWorker.class, 12, TimeUnit.HOURS, 1, TimeUnit.HOURS)
+                        .setConstraints(constraints)
+                        .build();
+
+        WorkManager.getInstance(this)
+                .enqueueUniquePeriodicWork("myUniqueWork", ExistingPeriodicWorkPolicy.KEEP, pwRequest);
     }
 
     @Override
@@ -111,9 +138,10 @@ public class MainActivity extends AppCompatActivity
             transaction.commit();
 
         } else if (id == R.id.nav_arquivos) {
-            ArquivosFragment arquviosFragment = new ArquivosFragment();
+            /*ArquivosFragment arquviosFragment = new ArquivosFragment();
             transaction.replace(R.id.contentLayout, arquviosFragment);
-            transaction.commit();
+            transaction.commit();*/
+            Toast.makeText(MainActivity.this, "Em breve", Toast.LENGTH_SHORT).show();
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
