@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:orientation="vertical"
     tools:context=".fragments.ContatoFragment">
 
@@ -11,6 +12,7 @@
         android:id="@+id/textView48"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:text="Contato"
         android:textSize="24sp"
         android:textStyle="bold" />
@@ -19,6 +21,7 @@
         android:id="@+id/l_wpp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:layout_marginTop="32dp"
         android:orientation="horizontal">
 
@@ -32,8 +35,8 @@
         <TextView
             android:id="@+id/textView50"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:paddingStart="16dp"
             android:text="Você recebeu algum conteúdo suspeito sobre coronavírus? Envie ao Comprova pelo WhatsApp" />
     </LinearLayout>
@@ -42,12 +45,15 @@
         android:id="@+id/divider2"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginEnd="16dp"
         android:background="?android:attr/listDivider" />
 
     <LinearLayout
         android:id="@+id/l_fc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -60,8 +66,8 @@
         <TextView
             android:id="@+id/textView51"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:paddingStart="16dp"
             android:text="Siga o Comprova no Facebook para acompanhar as últimas notícias" />
     </LinearLayout>
@@ -70,12 +76,15 @@
         android:id="@+id/divider3"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginEnd="16dp"
         android:background="?android:attr/listDivider" />
 
     <LinearLayout
         android:id="@+id/l_tt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -87,8 +96,8 @@
         <TextView
             android:id="@+id/textView53"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:paddingStart="16dp"
             android:text=" Siga o Comprova no Twitter para acompanhar as últimas notícias" />
     </LinearLayout>
@@ -97,12 +106,15 @@
         android:id="@+id/divider4"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginEnd="16dp"
         android:background="?android:attr/listDivider" />
 
     <LinearLayout
         android:id="@+id/l_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -115,8 +127,8 @@
         <TextView
             android:id="@+id/textView54"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:paddingStart="16dp"
             android:text="Para mais informações ou consultas de imprensa sobre Comprova, por favor enviar e-mail para comprova@abraji.org.br" />
     </LinearLayout>
