@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity
                 .build();
 
         PeriodicWorkRequest pwRequest =
-                new PeriodicWorkRequest.Builder(NotificacaoWorker.class, 12, TimeUnit.HOURS, 1, TimeUnit.HOURS)
+                new PeriodicWorkRequest.Builder(NotificacaoWorker.class, 72, TimeUnit.HOURS, 24, TimeUnit.HOURS)
                         .setConstraints(constraints)
                         .build();
 
