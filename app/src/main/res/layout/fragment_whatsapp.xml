@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".fragments.WhatsappFragment">
 
     <TextView
@@ -11,23 +14,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Você recebeu algum conteúdo suspeito? Envie para o WhatsApp do Comprova"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnEnviarWpp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="spread" />
+        android:textSize="24sp" />
 
     <Button
         android:id="@+id/btnEnviarWpp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enivar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        android:layout_gravity="center"
+        android:layout_marginTop="64dp"
+        android:backgroundTint="#26d366"
+        android:drawableLeft="@drawable/ic_whatsapp"
+        android:text="Enivar" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
