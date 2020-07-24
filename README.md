@@ -8,7 +8,7 @@
 App feito para o [Projeto Comprova](https://projetocomprova.com.br/), uma iniciativa sem fins lucrativos idealizada e desenvolvida pelo [First Draft](https://firstdraftnews.org/) com a colaboração da [Abraji](https://abraji.org.br/) e apoio do [Google News Initiative](https://newsinitiative.withgoogle.com/intl/pt_br/) e [Facebook's Journalism Project](https://pt-br.facebook.com/journalismproject).
 O Projeto Comprova reúne jornalistas de 28 diferentes veículos de comunicação brasileiros. Para saber mais sobre o comprova acesse [aqui](https://projetocomprova.com.br/about/).
 
-A ideia central do app é o usuário ter em mãos uma poderosa ferramenta contra Fake News, visto que quase a totalidade das notícias falsas são repassadas via celular e a maioria das pessoas que repassam essas notícias tem apenas o celular com fonte de acesso à internet e comunicação. É claro que o site do comprova pode ser facilmente acessado via navegador no celular, porém, com o app instalado, o usuário: 
+A ideia central do app é o usuário ter em mãos uma poderosa ferramenta contra Fake News, visto que quase a totalidade das notícias falsas são repassadas via celular e a maioria das pessoas que repassam essas notícias tem apenas o celular com fonte de acesso à internet e comunicação, além de não ter educação tecnológica e/ou hábito de pesquisar notícias. É claro que o site do comprova pode ser facilmente acessado via navegador no celular, porém, com o app instalado, o usuário: 
 * pode facilmente compartilhar um artigo desmentindo uma fake news
 * vai se manter engajado e trazer mais visibilidade aos artigos 
 * ser avisado constantemente(a cada 3 dias via notificação) sobre as últimas fakes news que circulam nas redes sociais.
