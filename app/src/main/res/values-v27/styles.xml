@@ -10,5 +10,8 @@
         <!-- api 27+ -->
         <item name="android:windowLightNavigationBar">false</item>
         <item name="android:navigationBarColor">@android:color/black</item>
+
+        <item name="android:textColor">@android:color/black</item>
     </style>
+    
 </resources>

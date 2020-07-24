@@ -127,7 +127,7 @@ public class ArtigoActivity extends AppCompatActivity {
                             @Override
                             public void updateDrawState(@NonNull TextPaint ds) {
                                 super.updateDrawState(ds);
-                                ds.setColor(getResources().getColor(R.color.colorPrimaryDark));
+                                ds.setColor(getResources().getColor(R.color.colorPrimary));
                             }
                         };
 

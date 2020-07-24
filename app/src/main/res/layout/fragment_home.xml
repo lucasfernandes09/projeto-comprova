@@ -21,8 +21,8 @@
             android:elevation="3dp"
             android:gravity="center"
             android:padding="16dp"
-            android:text="O Projeto Comprova reúne jornalistas de 28 diferentes veículos de comunicação brasileiros para descobrir e investigar informações enganosas, inventadas e deliberadamente falsas sobre políticas públicas compartilhadas nas redes sociais ou por aplicativos de mensagens. O Comprova é uma iniciativa sem fins lucrativos"
-            android:textSize="14sp"
+            android:text="O Projeto Comprova reúne jornalistas de 28 diferentes veículos de comunicação brasileiros para descobrir e investigar informações enganosas, inventadas e deliberadamente falsas sobre políticas públicas compartilhadas nas redes sociais ou por aplicativos de mensagens. O Comprova é uma iniciativa sem fins lucrativos."
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
