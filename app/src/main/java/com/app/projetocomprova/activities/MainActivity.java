@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity
 
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
+    private HomeFragment homeFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void iniciarHome() {
-        HomeFragment homeFragment = new HomeFragment();
+        homeFragment = new HomeFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.contentLayout, homeFragment);
         transaction.commit();
@@ -105,7 +106,6 @@ public class MainActivity extends AppCompatActivity
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         if(id == R.id.nav_home) {
-            HomeFragment homeFragment = new HomeFragment();
             transaction.replace(R.id.contentLayout, homeFragment);
             transaction.commit();
 
