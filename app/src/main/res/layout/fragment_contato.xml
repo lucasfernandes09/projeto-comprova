@@ -27,9 +27,15 @@
 
         <ImageView
             android:id="@+id/imageView43"
-            android:layout_width="80dp"
+            android:layout_width="64dp"
             android:layout_height="64dp"
-            android:background="#26D366"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_partners"
+            android:elevation="5dp"
             android:src="@drawable/ic_whatsapp" />
 
         <TextView
@@ -37,7 +43,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:paddingStart="16dp"
             android:text="Você recebeu algum conteúdo suspeito sobre coronavírus? Envie ao Comprova pelo WhatsApp" />
     </LinearLayout>
 
@@ -58,9 +63,16 @@
 
         <ImageView
             android:id="@+id/imageView46"
-            android:layout_width="80dp"
+            android:layout_width="64dp"
             android:layout_height="64dp"
-            android:background="#3A5897"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_partners"
+            android:elevation="5dp"
+            android:padding="12dp"
             android:src="@drawable/ic_facebook" />
 
         <TextView
@@ -68,7 +80,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:paddingStart="16dp"
             android:text="Siga o Comprova no Facebook para acompanhar as últimas notícias" />
     </LinearLayout>
 
@@ -89,8 +100,16 @@
 
         <ImageView
             android:id="@+id/imageView47"
-            android:layout_width="80dp"
+            android:layout_width="64dp"
             android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_partners"
+            android:elevation="5dp"
+            android:padding="8dp"
             android:src="@drawable/ic_twitter" />
 
         <TextView
@@ -98,7 +117,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:paddingStart="16dp"
             android:text=" Siga o Comprova no Twitter para acompanhar as últimas notícias" />
     </LinearLayout>
 
@@ -119,8 +137,16 @@
 
         <ImageView
             android:id="@+id/imageView48"
-            android:layout_width="80dp"
+            android:layout_width="64dp"
             android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/bg_partners"
+            android:elevation="5dp"
+            android:padding="12dp"
             android:scaleType="centerCrop"
             android:src="@drawable/email" />
 
@@ -129,7 +155,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:paddingStart="16dp"
             android:text="Para mais informações ou consultas de imprensa sobre Comprova, por favor enviar e-mail para comprova@abraji.org.br" />
     </LinearLayout>
 
