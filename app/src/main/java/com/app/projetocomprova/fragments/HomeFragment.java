@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.app.projetocomprova.activities.ArtigoActivity;
 import com.app.projetocomprova.activities.SplashScreenActivity;
 import com.app.projetocomprova.model.Artigos;
 import com.app.projetocomprova.R;
@@ -26,12 +27,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements ArtigosAdapter.ArtigoListener {
     private RecyclerView rvArtigos;
     private Button btnMais;
     private ArtigosAdapter adapter;
     private String URL = "https://projetocomprova.com.br/page/";
     private List<Artigos> listaDeArtigos = new ArrayList<>();
+    private Artigos artigo;
     private ProgressBar pbLoadBtnMais;
     private TextView tvAbraji, tvFirstDraft;
     final private String ABRAJI_LINK = "https://abraji.org.br/";
@@ -64,7 +66,7 @@ public class HomeFragment extends Fragment {
 
 
     public void exibirArtigos(List<Artigos> listaDeArtigos) {
-        adapter = new ArtigosAdapter(listaDeArtigos, getContext());
+        adapter = new ArtigosAdapter(listaDeArtigos, getContext(), HomeFragment.this);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         rvArtigos.setLayoutManager(layoutManager);
         rvArtigos.setHasFixedSize(true);
@@ -110,4 +112,11 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    @Override
+    public void click(int position) {
+        artigo = listaDeArtigos.get(position);
+        Intent intent = new Intent(getContext(), ArtigoActivity.class);
+        intent.putExtra("artigo", artigo);
+        startActivity(intent);
+    }
 }

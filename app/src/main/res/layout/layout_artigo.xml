@@ -109,20 +109,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivImg" />
 
-    <Button
-        android:id="@+id/btnVejaMais"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="VEJA MAIS"
-        android:textColor="@color/colorAccent"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvContent" />
-
     <!--<TextView
         android:id="@+id/textView52"
         android:layout_width="wrap_content"
@@ -135,56 +121,56 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView51" />-->
 
-    <ImageView
-        android:id="@+id/ivFacebook"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView45"
-        app:layout_constraintEnd_toStartOf="@+id/imageView44"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@id/imageView45"
-        app:layout_constraintTop_toTopOf="@+id/imageView45"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/ic_facebook" />
-
-    <ImageView
-        android:id="@+id/ivTwitter"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/ivFacebook"
-        app:layout_constraintEnd_toStartOf="@+id/imageView42"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/ivFacebook"
-        app:layout_constraintTop_toTopOf="@+id/ivFacebook"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ic_twitter" />
-
-    <ImageView
-        android:id="@+id/imageView45"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnVejaMais"
-        app:layout_constraintEnd_toStartOf="@+id/ivFacebook"
-        app:layout_constraintHorizontal_chainStyle="packed"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnVejaMais"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="?attr/actionModeShareDrawable" />
+        app:layout_constraintTop_toBottomOf="@+id/tvContent">
 
-    <ImageView
-        android:id="@+id/ivWpp"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@id/ivTwitter"
-        app:layout_constraintStart_toEndOf="@id/ivTwitter"
-        app:layout_constraintTop_toTopOf="@id/ivTwitter"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ic_whatsapp" />
+        <ImageView
+            android:id="@+id/iv_Facebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            app:srcCompat="@drawable/ic_facebook" />
+
+        <View
+            android:id="@+id/divider5"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:background="?android:attr/listDivider" />
+
+        <ImageView
+            android:id="@+id/iv_Twitter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            app:srcCompat="@drawable/ic_twitter" />
+
+        <View
+            android:id="@+id/divider6"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:background="?android:attr/listDivider" />
+
+        <ImageView
+            android:id="@+id/iv_Wpp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            app:srcCompat="@drawable/ic_whatsapp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

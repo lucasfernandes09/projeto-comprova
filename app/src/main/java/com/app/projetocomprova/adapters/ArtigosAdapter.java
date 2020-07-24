@@ -2,12 +2,10 @@ package com.app.projetocomprova.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.app.projetocomprova.model.Artigos;
 import com.app.projetocomprova.R;
-import com.app.projetocomprova.activities.ArtigoActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -26,10 +23,12 @@ public class ArtigosAdapter extends RecyclerView.Adapter<ArtigosAdapter.MyViewHo
 
     private List<Artigos> listaDeArtigos;
     private Context context;
+    private ArtigoListener artigoListener;
 
-    public ArtigosAdapter(List<Artigos> listaDeArtigos, Context context) {
+    public ArtigosAdapter(List<Artigos> listaDeArtigos, Context context, ArtigoListener artigoListener) {
         this.listaDeArtigos = listaDeArtigos;
         this.context = context;
+        this.artigoListener = artigoListener;
     }
 
     @NonNull
@@ -37,7 +36,7 @@ public class ArtigosAdapter extends RecyclerView.Adapter<ArtigosAdapter.MyViewHo
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.layout_artigo, parent, false);
-        return new MyViewHolder(itemView);
+        return new MyViewHolder(itemView, artigoListener);
     }
 
     @Override
@@ -58,7 +57,6 @@ public class ArtigosAdapter extends RecyclerView.Adapter<ArtigosAdapter.MyViewHo
             holder.ivBgImg.setImageAlpha(0);
         }
 
-        setClickBtnVejaMais(holder, artigo);
         setClickFacebook(holder, artigo.getShareFacebook());
         setClickTwitter(holder, artigo.getShareTwitter());
         setClickWpp(holder, artigo);
@@ -79,36 +77,36 @@ public class ArtigosAdapter extends RecyclerView.Adapter<ArtigosAdapter.MyViewHo
         return position;
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView tvTerm, tvDate, tvTitle, tvStatus, tvContent;
-        Button btnVejaMais;
         ImageView ivImg, ivBgImg, ivFacebook, ivTwitter, ivWpp;
+        ArtigoListener artigoListener;
 
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView, ArtigoListener artigoListener) {
             super(itemView);
             tvTerm = itemView.findViewById(R.id.tvTerm);
             tvDate = itemView.findViewById(R.id.tvDate);
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvStatus = itemView.findViewById(R.id.tvStatus);
             tvContent = itemView.findViewById(R.id.tvContent);
-            btnVejaMais = itemView.findViewById(R.id.btnVejaMais);
             ivImg = itemView.findViewById(R.id.ivImg);
             ivBgImg = itemView.findViewById(R.id.ivBgImg);
-            ivFacebook = itemView.findViewById(R.id.ivFacebook);
-            ivTwitter = itemView.findViewById(R.id.ivTwitter);
-            ivWpp = itemView.findViewById(R.id.ivWpp);
+            ivFacebook = itemView.findViewById(R.id.iv_Facebook);
+            ivTwitter = itemView.findViewById(R.id.iv_Twitter);
+            ivWpp = itemView.findViewById(R.id.iv_Wpp);
+
+            this.artigoListener = artigoListener;
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            artigoListener.click(getAdapterPosition());
         }
     }
 
-    private void setClickBtnVejaMais(MyViewHolder holder, final Artigos artigo) {
-        holder.btnVejaMais.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, ArtigoActivity.class);
-                intent.putExtra("artigo", artigo);
-                context.startActivity(intent);
-            }
-        });
+    public interface ArtigoListener {
+        void click(int position);
     }
 
     private void setClickFacebook(MyViewHolder holder, final String linkFacebook) {

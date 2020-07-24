@@ -4,13 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +18,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.app.projetocomprova.adapters.ArtigosAdapter;
 import com.app.projetocomprova.model.Artigos;
 import com.app.projetocomprova.R;
 import com.app.projetocomprova.RecuperarFullArtigo;
@@ -26,16 +28,13 @@ import com.squareup.picasso.Picasso;
 
 import org.jsoup.nodes.Element;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
-import java.util.concurrent.ExecutionException;
 
 public class ArtigoActivity extends AppCompatActivity {
     private Artigos artigo;
     private LinearLayout linearLayout, layoutInvest, layoutVerif;
     private TextView tvTerm2, tvDate2, tvTitle2, tvStatus2, tvContent2, tvVerified;
-    private ImageView ivImg2, ivBgImg2;
+    private ImageView ivImg2, ivBgImg2, ivFacebook, ivTwitter, ivWpp;
     private ProgressBar pbLoadContent;
 
     @Override
@@ -49,6 +48,7 @@ public class ArtigoActivity extends AppCompatActivity {
         tvStatus2 = findViewById(R.id.tvStatus2);tvContent2 = findViewById(R.id.tvContent2); tvVerified = findViewById(R.id.tvVerified);
         ivImg2 = findViewById(R.id.ivImg2); ivBgImg2 = findViewById(R.id.ivBgImg2);
         pbLoadContent = findViewById(R.id.pbLoadContent);
+        ivFacebook = findViewById(R.id.iv_Facebook); ivTwitter = findViewById(R.id.iv_Twitter); ivWpp = findViewById(R.id.iv_Wpp);
 
         //receber objeto de ArtigosAdapter
         artigo = getIntent().getParcelableExtra("artigo");
@@ -58,7 +58,12 @@ public class ArtigoActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         exibicaoInicial();
+
         recuperarFullArtigo();
+
+        setClickFacebook(artigo.getShareFacebook());
+        setClickTwitter(artigo.getShareTwitter());
+        setClickWpp(artigo.getLink());
 
     }
 
@@ -198,6 +203,50 @@ public class ArtigoActivity extends AppCompatActivity {
 
         //conteúdo verificado
         tvVerified.setText(artigo.getVerifiedContent());
+    }
+
+    private void setClickFacebook(final String linkFacebook) {
+        ivFacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent facebookIntent = new Intent(Intent.ACTION_VIEW);
+                try{
+                    facebookIntent.setData(Uri.parse("fb://facewebmodal/f?href=" + linkFacebook));
+                    startActivity(facebookIntent);
+                }catch (Exception e) {
+                    facebookIntent.setData(Uri.parse(linkFacebook));
+                    startActivity(facebookIntent);
+                }
+            }
+        });
+    }
+
+    private void setClickTwitter(final String linkTwitter) {
+        ivTwitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(linkTwitter));
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void setClickWpp(final String artigoLink) {
+        ivWpp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    Intent wppIntent = new Intent(Intent.ACTION_SEND);
+                    wppIntent.putExtra(Intent.EXTRA_TEXT, artigoLink);
+                    wppIntent.setType("text/plain");
+                    wppIntent.setPackage("com.whatsapp");
+                    startActivity(wppIntent);
+                }catch (Exception e) {
+                    Toast.makeText(ArtigoActivity.this, "WhatsApp não instalado", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override
