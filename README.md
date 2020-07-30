@@ -1,6 +1,9 @@
- # Projeto Comprova App
- 
- <img src="screenShots/device-2020-07-24-124153.png" width=200 height=400> <img src="screenShots/device-2020-07-24-124338.png" width=200 height=400> <img src="screenShots/device-2020-07-24-124404.png" width=200 height=400> <img src="screenShots/device-2020-07-24-124841.png" width=200 height=400> <img src="screenShots/device-2020-07-24-124926.png" width=200 height=400> <img src="screenShots/device-2020-07-24-124446.png" width=200 height=400> <img src="screenShots/device-2020-07-24-124549.png" width=200 height=400> <img src="screenShots/device-2020-07-24-124631.png" width=200 height=400> ![icon](app/src/main/res/mipmap-hdpi/ic_launcher_round.png)
+<h1>
+Projeto Comprova App
+<img src="app/src/main/res/mipmap-hdpi/ic_launcher_round.png">
+</h1> 
+
+<img src="screenShots/device-2020-07-24-124153.png" width=200 height=400> <img src="screenShots/device-2020-07-24-124338.png" width=200 height=400> <img src="screenShots/device-2020-07-24-124404.png" width=200 height=400> <img src="screenShots/device-2020-07-24-124841.png" width=200 height=400> <img src="screenShots/device-2020-07-24-124926.png" width=200 height=400> <img src="screenShots/device-2020-07-24-124446.png" width=200 height=400> <img src="screenShots/device-2020-07-24-124549.png" width=200 height=400> <img src="screenShots/device-2020-07-24-124631.png" width=200 height=400>
 
  ---
  
