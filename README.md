@@ -21,6 +21,7 @@ A ideia central do app é o usuário ter em mãos uma poderosa ferramenta contra
 * Picasso para fazer o load das imagens
 * SpannableString e WebView para gerenciar os links presentes nos artigos
 * WorkManager biblioteca presente no Android [JetPack](https://developer.android.com/jetpack) para implementar as notificações
+* Intents
 
 ## Instale o App
 [app comprova](https://drive.google.com/file/d/1YZUNRBuEAUOYdkipTOh2kvh86BTTVKJU/view?usp=sharing)
